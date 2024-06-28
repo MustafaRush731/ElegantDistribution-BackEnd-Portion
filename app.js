@@ -3,6 +3,11 @@
 const express = require('express');
 const app = express();
 
+var productsRouter = require('./routers/products');
+var accountRouter = require('./routers/account');
+
+app.use('/products', productsRouter);
+app.use('/account', accountRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
