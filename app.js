@@ -6,12 +6,16 @@ const app = express();
 // parse incoming data using json format
 app.use(express.json());
 
-
 // this is one of the router that we will use and here we are importing it into this file
 const endpoints = require('./routers/endpoints');
+const productsRouter = require('./routers/products');
+const accountRouter = require('./routers/account');
+
 
 // here we are telling the app to use the endpoints router as the main entry point
 app.use('/', endpoints);
+app.use('/products', productsRouter);
+app.use('/account', accountRouter);
 
 // we are exporting the app so that we can use it in the server.js file
 module.exports = app;
